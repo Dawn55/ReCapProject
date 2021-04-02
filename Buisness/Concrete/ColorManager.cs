@@ -40,7 +40,7 @@ namespace Buisness.Concrete
 
         public Color GetById(int id)
         {
-            return _colordal.Get(c => c.Id == id);
+            return _colordal.Get(c => c.ColorId == id);
         }
 
         IDataResult<List<Color>> IColorService.GetAll()

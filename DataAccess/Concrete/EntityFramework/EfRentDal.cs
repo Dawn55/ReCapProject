@@ -21,7 +21,7 @@ namespace DataAccess.Concrete.EntityFramework
                              join b in context.Brands
                              on c.BrandId equals b.Id
                              join co in context.Colors
-                             on c.ColorId equals co.Id
+                             on c.ColorId equals co.ColorId
                              join cu in context.Customers
                              on r.CustomerId equals cu.Id
                              join u in context.Users

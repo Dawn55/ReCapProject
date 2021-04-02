@@ -49,6 +49,24 @@ namespace Buisness.Concrete
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(p=>p.BrandId==id),Messages.CarsListed);
         }
 
+        public IDataResult<List<CarDetailDto>> GetAllByBrandIdWithDetails(int id)
+        {
+          var data =  _carDal.GetCarDetails().Where(p => p.BrandId == id).ToList();
+            return new SuccessDataResult<List<CarDetailDto>>(data);
+        }
+
+        public IDataResult<List<CarDetailDto>> GetAllByColorIdWithDetails(int id)
+        {
+            var data = _carDal.GetCarDetails().Where(p => p.ColorId == id).ToList();
+            return new SuccessDataResult<List<CarDetailDto>>(data);
+        }
+
+        public IDataResult<List<CarDetailDto>> GetAllByIdWithDetails(int id)
+        {
+            var data = _carDal.GetCarDetails().Where(p => p.CarId == id).ToList();
+            return new SuccessDataResult<List<CarDetailDto>>(data);
+        }
+
         public IDataResult<List<Car>> GetByDailyPrice(decimal min, decimal max)
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(p => p.DailyPrice > min && p.DailyPrice < max), Messages.CarsListed);
